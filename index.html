@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Satisfy&display=swap" rel="stylesheet">
+    <script src="vara.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+</head>
+<body>
+
+    <audio autoplay src="jaz1.mp3"></audio>
+    <div id="container"></div>
+    <p id="typed" class="name"></p>
+    <button onclick="click()" class="button">NEXT</button>
+    <p class="yold">Now are 16 years old</p>
+    <div class="wrapper">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script>
+        var fontSize = 40;
+        if (window.screen.width > 700)
+            fontSize = 55;
+        else if (window.screen.width > 1200)
+            fontSize = 80;
+        var vara = new Vara(
+            "#container",
+            "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json",
+            [{
+                text: "Hello",
+                y: 150,
+                fromCurrentPosition: {
+                    y: false
+                },
+                duration: 2000
+            },
+                {
+                    text: "Happy Birthday!",
+                    y: 150,
+                    fromCurrentPosition: {
+                        y: false
+                    },
+                    delay: 2000,
+                    duration: 4000,
+                    id: "no_erase"
+                }
+            ],
+
+            {
+                strokeWidth: 2.5,
+                color: "#000",
+                fontSize: fontSize,
+                textAlign: "center"
+            }
+        );
+        vara.ready(function() {
+            var erase = true;
+            vara.animationEnd(function(i, o) {
+                if (i == "no_erase") erase = false;
+                if (erase) {
+                    o.container.style.transition =
+                    "opacity 1s 1s";
+                    o.container.style.opacity = 0;
+                }
+            });
+        });
+
+setInterval( function(){
+    var mun = document.querySelector(".name");
+    mun.classList.add("fadeIn")
+}, 10000);
+
+setInterval( function(){
+    var munc = document.querySelector(".button");
+    munc.classList.add("fadeIn")
+}, 14000);
+
+
+var typed = new Typed('#typed', {
+         strings: ["Tu", "Me", "Proud of me"],
+         typeSpeed: 100,
+         backSpeed: 100,
+         smartBackspace: true,
+         backDelay: 500,
+         loop: true,
+         cursorChar: ''
+     });
+
+
+var btn = document.querySelector(".button")
+btn.addEventListener('click', function(){
+     var great = document.getElementById("container")
+     var nama = document.getElementById("typed")
+     var tombol = document.querySelector(".button")
+     var umr = document.querySelector(".yold")
+     great.classList.add("fadeOut")
+     nama.classList.add("fadeOut")
+     tombol.classList.add("fadeOut")
+     document.body.classList.add("dark")
+     yold.classList.add("fadeIn")
+
+})
+    </script>
+</body>
+</html>
